@@ -17,9 +17,9 @@ const UseCallbackComp = ({skills}) => {
 
   return (
     <div>
-        <h1>Add Skill</h1>
+        <h1 id="heading">Add Skill</h1>
       <input id="skill-input" type="text" onChange={(e) => setSkill(e.target.value)} />
-      <button id="add-skill-button" onClick={addSkill}>Add Skill</button>
+      <button id="skill-add-button" onClick={addSkill}>Add Skill</button>
 
       <SkillList skills={skills} deleteSkill={deleteSkill} />
         </div>
