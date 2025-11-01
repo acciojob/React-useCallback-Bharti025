@@ -7,8 +7,8 @@ const SkillList = ({skills}) => {
       <h1>Skill List</h1>
       <ul id="skill-list">
         {skills.map((skill, index) => (
-          <li key={index}>
-           <p id={`skill-number-${index}`}>{skill}</p>
+          <li key={index} id={`skill-number-${index}`}>
+           <p >{skill}</p>
           <button onClick={() => deleteSkill(index)}>Delete</button>
           </li>
         ))}

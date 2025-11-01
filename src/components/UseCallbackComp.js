@@ -1,19 +1,22 @@
 import React,{useCallback, useState} from 'react'
 import SkillList from './SkillList'
-const UseCallbackComp = ({skills}) => {
-  const [skill, setSkill] = useState('')
+const UseCallbackComp = () => {
+  const [skills,setSkills]=useState([]);
+  const [skill, setSkill] = useState('');
 
   const addSkill = () => {
     if(skill.trim() === '') return
-    skills.push(skill)
+     setSkills((prev) => [...prev, skill]); // immutable up
     console.log(skills)
-    setSkill('')
+    setSkill("");
   }
 
   const deleteSkill=useCallback((index)=>{
     let output=skills.filter((_,i)=>i!==index)
-    console.log(output)
-  },[skills])
+    console.log(output);
+    setSkills(output);
+  },[])
+
 
   return (
     <div>
@@ -22,9 +25,8 @@ const UseCallbackComp = ({skills}) => {
           <input id="skill-input" type="text" onChange={(e) => setSkill(e.target.value)} />
           <button id="skill-add-btn" type="submit">Add Skill</button>
         </form>
-
       <SkillList skills={skills} deleteSkill={deleteSkill} />
-        </div>
+      </div>
   )
 }
 
